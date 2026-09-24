@@ -35,4 +35,4 @@ Main Features
 🎙️ Explore famous Egyptian Quran reciters and Mubtahileen
 🔗 Wikipedia references for further information
 🗺️ Explore heritage locations across Egypt
-🌐 Responsive design for desktop, tablet, and mobile
+🌐 Responsive design for desktop, tablet, and mobile.
