@@ -1,0 +1,538 @@
+/* =====================================================
+   DESIGN TOKENS  (single place that controls how the site scales)
+   ===================================================== */
+:root{
+  /* Widest the page content may ever get. Above this width the extra
+     screen space becomes side margin instead of bigger content. */
+  --container-max: 1300px;
+  /* Side gutter: 5vw on normal screens, never below 12px on phones. */
+  --gutter: clamp(0.75rem, 5vw, 4.5rem);
+  /* Height of the inner-page banner image (mosques / stories / figures). */
+  --banner-h: clamp(17.5rem, 27.8vw, 25rem);
+  /* Vertical breathing room between big sections (150px on 1440, 90px on phones). */
+  --section-space: clamp(5.625rem, 10.4vw, 9.375rem);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family:"Montserrat", sans-serif;
+}
+
+
+
+
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background-color:#F7F1E5;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  display: inline-block;
+}
+._container{
+  margin-inline: auto;
+  /* fluid on small/medium screens, capped on large monitors */
+  width: min(100% - 2 * var(--gutter), var(--container-max));
+}
+
+/*  header */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+#header.scrolled {
+  background: #153B30;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 15px  #11191778;
+}
+header ._container{
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+header ._container nav{
+  display: flex;
+  align-items:center;
+  flex-flow: nowrap row;
+}
+header ._container nav ul{
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+header ._container nav ul li{
+  display: flex;
+  align-items: center;
+  margin: 0 clamp(0.375rem, 0.8vw, 0.625rem);
+  border-bottom: 2px solid transparent;
+  transition: .4s;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -ms-transition: .4s;
+  -o-transition: .4s;
+}
+
+header ._container nav ul li:not(:last-of-type):hover{
+  border-bottom: 2px solid #CFB071;
+}
+header ._container nav ul li a{
+  width: 100%;
+  padding: 10px;
+  color:#F7F1E5;
+  font-size: clamp(1rem, 0.35rem + 0.9vw, 1.125rem);
+  font-weight: 700;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+header ._container nav ul li:not(:last-of-type):hover a{
+  color: #CFB071 !important;
+}
+header ._logo{
+width: clamp(2.625rem, 3.5vw, 3.125rem);
+flex-shrink: 0;
+}
+
+header ._logo img{
+  width: 100%;
+}
+header hr{
+margin: 0;
+border: 1px solid #153B30;
+}
+header a._btn{
+  color: #153B30 !important;
+  background-color: #CFB071;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition:.3s;
+}
+header li._btn:hover a._btn{
+  color: #CFB071 !important;
+  background-color:#153B30 !important;
+}
+
+/* end header */
+
+
+
+#backToTop {
+  z-index: 1000;
+  color: #153B30;
+  position: fixed;
+  bottom: clamp(0.75rem, 2vw, 1.875rem);
+  right: clamp(0.75rem, 2vw, 1.875rem);
+  background-color: #CFB071;
+  border-radius: 50%;
+  border: none;
+  padding: 10px;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+#backToTop:hover{
+  background-color: #01342c;
+  color: #CFB071;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* start footer */
+footer{
+  /* background-color: #153B30; */
+  color: #CFB071;
+  padding: clamp(2rem, 3.5vw, 3.125rem) 0;
+  width: 100%;
+  z-index: 1;
+}
+footer ._container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 30px;
+}
+footer ._img{
+  width: 80px;
+  display: inline;
+}
+footer ._img img{
+  width: 100px;
+  max-width: 100%;
+}
+footer ._logo{
+  width: 30%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer ._logo h3{
+  display: inline-block;
+  padding: 10px;
+}
+footer ._links{
+  width: 30%;
+  min-width: 0;
+  padding: 0 10px;
+  text-align: center;
+}
+footer ._links a{
+  display: block;
+  width: fit-content;
+  /*margin: 0 auto;
+  */font-size: large;
+  font-weight: bold;
+  color: #CFB071;
+  margin-bottom: 10px;
+  transition: transform .3s;
+  -webkit-transition: transform .3s;
+  -moz-transition: transform .3s;
+  -ms-transition: transform .3s;
+  -o-transition: transform .3s;
+}
+footer ._links a svg{
+  display: inline;
+  width: 32px;
+  padding-right: 10px;
+    transition: transform .3s;
+  -webkit-transition: transform .3s;
+  -moz-transition: transform .3s;
+  -ms-transition: transform .3s;
+  -o-transition: transform .3s;
+}
+footer ._links a:hover{
+  color: #f1e3c7;
+}
+footer ._links a:hover svg{
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+footer ._contact{
+  width: 30%;
+  min-width: 260px;
+}
+footer ._contact *{
+  margin-bottom: 10px;
+}
+footer ._contact h4{
+  font-weight: bold;
+}
+
+footer ._contact textarea{
+  width:100%;
+  height: 150px;
+  resize: vertical;
+  max-width: 100%;
+}
+footer ._contact textarea,
+footer ._contact input{
+  padding: 10px;
+  outline: none;
+  border: none;
+  background-color: #F7F1E5;
+  color: #153b30;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+footer ._contact ._social *{
+  font-size: 25px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.footer_bg{
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  background-color:#153B30;
+}
+.footer_bg::after{
+  position: absolute;
+  content: "";
+  background-image: url(../images/bg/55.png);
+  inset: 0;              /* follows the real footer height instead of a fixed 560px */
+  opacity: .1;
+  pointer-events: none;  /* decorative layer must never block clicks on footer links/inputs */
+}
+/* end footer */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE LAYER (main.css)
+   Most scaling is done with clamp()/min()/% so very few media
+   queries are needed. The only breakpoints in this file are:
+     1024px  tablet landscape  -> hamburger menu, stacked footer
+      768px  tablet portrait   -> single footer column
+      480px  phones            -> compact spacing
+   ===================================================== */
+
+/* ---------- Global safety net ---------- */
+html {
+  max-width: 100%;
+  overflow-x: hidden;          /* fallback */
+}
+@supports (overflow: clip) {
+  html { overflow-x: clip; }   /* clips overflow without creating a 2nd scroll container */
+}
+body {
+  max-width: 100%;
+}
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+img,
+video {
+  height: auto;                /* keeps aspect ratio when only the width is constrained */
+}
+
+/* ---------- Shared inner-page banner (mosques / stories / figures) ----------
+   The image fills the banner absolutely, so the banner is at least --banner-h
+   tall but grows if the title text needs more room (no clipping on phones). */
+._landbg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--banner-h);
+  padding-block: 1.5rem;
+}
+._landbg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+._landbg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+._landbg ._container {
+  position: relative;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._landbg ._container ._title {
+  width: min(100%, 40rem);
+}
+._landbg h1 {
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.5rem);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Mobile nav toggle (pure CSS checkbox hack) ---------- */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+.nav-toggle-label span,
+.nav-toggle-label::before,
+.nav-toggle-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #f7f1e5;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.nav-toggle-label::before {
+  top: 0;
+}
+.nav-toggle-label span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-toggle-label::after {
+  bottom: 0;
+}
+.nav-toggle:checked ~ .nav-toggle-label::before {
+  transform: translateY(9.5px) rotate(45deg);
+}
+.nav-toggle:checked ~ .nav-toggle-label span {
+  opacity: 0;
+}
+.nav-toggle:checked ~ .nav-toggle-label::after {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ---------- Tablets and below (<=1024px) ---------- */
+@media (max-width: 1024px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  header ._container nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 80%);
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    background: #153b30;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 90px 25px 25px;
+    transition: right 0.3s ease, visibility 0.3s;
+    visibility: hidden;          /* closed menu links are not reachable by keyboard */
+    overflow-y: auto;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+  }
+  .nav-toggle:checked ~ nav {
+    right: 0;
+    visibility: visible;
+  }
+
+  header ._container nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  header ._container nav ul li {
+    width: 100%;
+    margin: 6px 0;
+    border-bottom: none;
+  }
+  header ._container nav ul li a {
+    width: 100%;
+    font-size: 1.0625rem;
+    padding: 10px;
+  }
+  header li._btn {
+    margin-top: 15px;
+    width: 100%;
+  }
+  header a._btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  footer ._logo,
+  footer ._links {
+    width: 45%;
+  }
+  footer ._contact {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ---------- Tablet portrait and below (<=768px) ---------- */
+@media (max-width: 768px) {
+  footer ._container {
+    justify-content: flex-start;
+    text-align: center;
+  }
+  footer ._logo,
+  footer ._links,
+  footer ._contact {
+    width: 100%;
+    min-width: 0;
+  }
+  footer ._logo {
+    justify-content: center;
+  }
+  footer ._contact {
+    text-align: left;
+  }
+  ._landbg {
+    padding-top: 4.5rem;         /* keep the title clear of the fixed header */
+  }
+}
+
+/* ---------- Phones (<=480px) ---------- */
+@media (max-width: 480px) {
+  header ._container nav {
+    width: min(300px, 85%);
+  }
+  footer ._contact ._social * {
+    font-size: 22px;
+  }
+}
+
+/* ---------- Touch devices: hover-only controls must be visible ---------- */
+@media (hover: none) {
+  .explore,
+  ._exp {
+    opacity: 1 !important;
+  }
+}

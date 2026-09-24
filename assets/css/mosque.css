@@ -1,0 +1,184 @@
+/* Banner size/position/image-fit rules are shared and live in main.css (._landbg).
+   Only this page's overlay colour and title styling stay here. */
+._landbg::after{
+  background-color: #153b30a1;
+}
+._landbg ._container ._title{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  color: #f6ebd4; 
+}
+/* section eslam era */
+._sec {
+  padding:  50px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+._sec ._title {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+._sec ._title h2 {
+  color: #153B30;
+}
+._sec ._title h2 > span {
+  background-color: #cfb071;
+  padding: 3px 10px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+._sec ._title ._icon{
+  color: #cfb071;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+._sec ._item{
+  width: 85%;
+  background-color: #f6ebd4;
+  border: 5px  solid #2d5113 ;
+  margin:  30px auto;
+  padding: clamp(1.25rem, 3.5vw, 3.125rem);
+  display: grid;
+  gap: clamp(1.25rem, 3.5vw, 3.125rem);
+  grid-template-columns: 1fr 2fr;
+  /* was a fixed 350px row: long descriptions overflowed the frame */
+  grid-template-rows: minmax(21.875rem, auto);
+  justify-content: center;
+  align-items: center;
+  border-radius: clamp(1.5rem, 3.125vw, 2.8125rem);
+}
+
+._sec ._item ._imgs{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px 15px;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-rows: 150px 150px; */
+}
+._sec ._item ._imgs ._first{
+    grid-row: 1 / span 2;
+}
+._sec ._item ._imgs ._img{
+  justify-self: center;
+  width: clamp(6.5rem, 14vw, 12.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._sec ._item ._imgs ._img img{
+  width: 100%;
+  box-shadow: 0px 10px 30px rgba(128, 128, 128, 0.484);
+  border-radius: 15px;
+  transition: .3s;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+._sec ._item ._imgs img:hover{
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+._sec ._item ._text{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+._sec ._item ._text h2{
+  color: #153B30;
+}
+._sec ._item ._text h6 i{
+  color: #cfb071;
+}
+._sec ._item ._text p{
+  color: rgb(103, 102, 102);
+  font-weight: 500;
+  }
+
+._sec ._item ._text button a{
+  color: #153B30;
+  padding: 5px 15px;
+}
+._sec ._item ._text button{
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #cfb071;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  transition: .3s;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+._sec ._item ._text button:hover{
+  background-color: transparent;
+  border: 2px solid #153B30;
+}
+._fasel{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+._fasel *{
+  width: 35px;
+  margin:10px;
+  color: #2d5113;
+}
+
+/* =====================================================
+   RESPONSIVE LAYER (mosque.css)
+   The page had no media queries before, which is why the image
+   mosaic was pushed off the left edge of phones.
+   Breakpoints: 768px (stack image mosaic above the text), 480px (tighter frame)
+   ===================================================== */
+@media (max-width: 768px) {
+  ._sec ._item {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+  ._sec ._item ._imgs {
+    grid-template-columns: repeat(2, minmax(0, 12.5rem));
+  }
+  ._sec ._item ._imgs ._img {
+    width: 100%;
+  }
+  ._sec ._item ._text {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  ._sec ._item {
+    border-width: 4px;
+    margin-block: 20px;
+  }
+}

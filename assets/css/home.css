@@ -1,0 +1,772 @@
+/* start hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* The markup actually uses ._hero as the wrapper class. Without this rule
+   the video/overlay (position: absolute; inset: 0;) have no positioned
+   ancestor and can bleed across the full document height instead of
+   staying confined to the hero section — a major source of overflow. */
+._hero {
+  position: relative;
+  overflow: hidden;
+}
+._hero ._container {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  /* min-height (not height): the hero fills the screen but can grow if the
+     text needs more room, e.g. on short landscape phones */
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: nowrap column;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  /* was 100px on every side, which left only ~160px for text on a 360px phone */
+  padding: clamp(5rem, 8vw, 6.25rem) clamp(1rem, 7vw, 6.25rem);
+}
+.hero-content h1{
+  color: #CFB071;
+}
+.hero-content p{
+  width: min(100%, 35rem);
+  color: #d7d7d7;
+}
+#startVideo{
+  background-color: #CFB071;
+  z-index: 1000;
+}
+
+
+
+._btns {
+  width: min(100%, 31rem);
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+._btns a {
+  font-size: clamp(0.8125rem, 0.75rem + 0.2vw, 0.9375rem);
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 8px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+._btns ._a1 {
+  background-color: #cfb071;
+  color: #133d33;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+._btns ._a1:hover{
+  border: 2px solid #133d33;
+  transform: scale(1.1);
+}
+
+._btns ._a2 {
+  background-color: transparent;
+  color: #cfb071;
+  border: 2px solid #cfb071;
+  transition: 0.3s ease;
+}
+._btns ._a2:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+/* Sound Button */
+.sound-btn {
+  position: absolute;
+  right: clamp(1rem, 2vw, 1.875rem);
+  bottom: clamp(1rem, 2vw, 1.875rem);
+  width: clamp(2.5rem, 1.2rem + 2.3vw, 3.25rem);
+  height: clamp(2.5rem, 1.2rem + 2.3vw, 3.25rem);
+  border: 1px solid #cfb07192;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: clamp(0.875rem, 0.5rem + 1vw, 1.3125rem);
+  cursor: pointer;
+  z-index: 10;
+  color: #cfb071;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.sound-btn:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.7);
+  color: #cfb071;
+}
+
+/* famuse mosque */
+section._famusMosque {
+  margin: var(--section-space) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+section._famusMosque::before{
+  content: "";
+  width: 100%;
+  height: clamp(15rem, 40vh, 27rem);
+  position: absolute;
+  background-image: url(../images/bg/55.png);
+  opacity: .6;
+  pointer-events: none;
+} 
+section._famusMosque ._title {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+section._famusMosque ._title h1 {
+  color: #133d33;
+}
+section._famusMosque ._title span {
+  color: #cfb071;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+._famusMosque ._cards {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  row-gap: 30px;
+  padding: 20px;
+}
+._famusMosque {
+  position: relative;
+}
+
+/* ._famusMosque ._cards::before{
+  content: "asaasaadadssa ";
+  width: 100%;
+  color: transparent;
+  position: absolute;
+  background-image: url(../images/bg/55-190-texture-background-islamic-stock-photos-pictures-royalty-free-images-istock.image.seamless-pattern-in-authentic-arabian-style.Woblo-removebg-preview.png);
+  height: 40vh;
+  opacity: .5;
+} */
+._famusMosque ._cards .card {
+  width: 18rem;      /* moved here from an inline style so it can respond to screen size */
+  max-width: 100%;
+  box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.482);
+  margin: 0 10px;
+  border: 5px solid #133d33;
+  transition: 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50% 50% 15px 15px;
+  -webkit-border-radius: 50% 50% 15px 15px;
+  -moz-border-radius: 50% 50% 15px 15px;
+  -ms-border-radius: 50% 50% 15px 15px;
+  -o-border-radius: 50% 50% 15px 15px;
+}
+.explore {
+  position: relative;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: #cfb071;
+  padding: 6px 14px;
+  border-radius: 25px;
+  margin: 5px 0;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.card:hover .explore {
+  opacity: 1;
+  /* bottom: -15px; */
+}
+._famusMosque ._cards .card:hover {
+  border: 2px solid #cfb071;
+  background-color: #f7f1e5;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.357);
+}
+._hid {
+  color: transparent;
+}
+._famusMosque ._cards .card img {
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+._famusMosque ._cards .card:hover img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+._famusMosque ._cards .card h5 {
+  font-weight: bold;
+}
+._famusMosque ._cards .card p {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #0000007b;
+}
+._famusMosque ._cards .card ._icons {
+  color: #cfb071;
+  margin: 8px 0;
+}
+/* end famous*/
+
+/* start Era slider */
+.era_slider {
+  padding: clamp(2.5rem, 3.5vw, 3.125rem) 0 clamp(2.5rem, 4vw, 3.5rem) 0;
+  background: radial-gradient(circle at 50% 30%, #0e271f 0%, #0a1c1a 100%);
+}
+.era_slider ._title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.era_slider ._title h1 {
+  color: #cfb071;
+  font-weight: bold;
+  text-shadow: 0 10px 20px #558b2fa7;
+}
+.era_slider ._title p{
+  margin-top: 15px;
+  color: antiquewhite;
+}
+.era_slider ._slider {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+}
+.era_slider ._track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scroll 25s linear infinite;
+  -webkit-animation: scroll 25s linear infinite;
+}
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+.era_slider ._track ._item {
+  position: relative;
+  /* 300 x 200 on a 1440 screen, smaller on phones, never bigger on large monitors */
+  width: clamp(11.25rem, 8.46rem + 11.43vw, 18.75rem);
+  aspect-ratio: 3 / 2;
+  flex-shrink: 0;
+  margin-right: clamp(0.9375rem, 2.6vw, 2.5rem);
+  overflow: hidden;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.era_slider ._track ._item ._exp {
+  position: absolute;
+  color: white;
+  background-color: #0000007b;
+  color: #cfb071;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+  opacity: 0;
+  border: 2px solid #cfb07192;
+}
+.era_slider ._track ._item:hover ._exp {
+  opacity: 1;
+}
+.era_slider ._track ._item video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(.8);
+  transition:transform 0.5s,    filter 0.4s;
+  -webkit-filter: grayscale(.8);
+  -webkit-transition:transform 0.5s,    filter 0.4s;
+  -moz-transition:transform 0.5s,    filter 0.4s;
+  -ms-transition:transform 0.5s,    filter 0.4s;
+  -o-transition:transform 0.5s,    filter 0.4s;
+}
+.era_slider ._track ._item video:hover {
+  filter: grayscale(0) !important;
+  transform: scale(1.08);
+  -webkit-filter: grayscale(0) !important;
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  -o-transform: scale(1.08);
+}
+.era_slider ._slider:hover ._track {
+  animation-play-state: paused;
+}
+/*map  */
+.era_slider ._map{
+  margin: clamp(4rem, 7vw, 6.25rem) 0 0;
+  text-align: center;
+}
+.era_slider ._map h1{
+  color: #cfb071;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-shadow: 0 10px 20px #558b2fa7;
+}
+.era_slider ._map p{
+  width: min(90%, 40rem);
+  margin: 0 auto 50px auto;
+  color: white;
+}
+.era_slider ._map iframe{
+  display: block;
+  margin-inline: auto;
+  width: 80%;
+  /* was height:100% of a 100vh box: the map became huge on tall monitors */
+  height: clamp(20rem, 100vh, 56rem);
+  height: clamp(20rem, 100svh, 56rem);
+  border: 4px solid #cfb071;
+  border-radius: 15px;
+  position: relative;
+  
+}
+/* end map */
+/* end Era slider*/
+
+/* start story section */
+._stories{
+  margin: clamp(4rem, 7vw, 6.25rem) 0;
+  background-image: url(../images/bg/2-640-texture-background-islamic-stock-photos-pictures-royalty-free-images-istock.image.islamic-background-with-traditional-style-arabic-seamless-pattern-for-card-background-fabric.Woblo.jpg);
+  /* background-size: cover; */
+}
+._stories ._overlay{
+  padding: clamp(3.75rem, 7vw, 6.25rem) 0;
+  background-color: #0302005f;
+}
+._stories ._cards{
+  padding: clamp(0.75rem, 2vw, 1.5625rem);
+}
+._stories ._container .card{
+  background-color: #f7f1e5;
+  border: 2px solid transparent;
+}
+._stories ._container .card:hover{
+  border: 2px solid #cfb071;
+}
+._stories ._container .card ._overlay{
+  opacity: 0;
+  background-color: #00000078;
+  transition: 0.3s ease;  
+}
+._stories ._container .card:hover ._overlay{
+  opacity: 1;
+}
+._stories ._container .card ._exp{
+  position: absolute;
+  color: white;
+  background-color: #0000007b;
+  color: #cfb071;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+  opacity: 0;
+  border: 2px solid #cfb07192;
+}
+._stories ._container .card:hover ._exp{
+  opacity: 1;
+}
+._stories ._container h1{
+  text-align: center;
+  padding-bottom: clamp(3.75rem, 7vw, 6.25rem);
+  color: #fff;
+}
+._stories ._container h5{
+  font-weight: bold;
+  color: #133d33;
+}
+._stories ._container .card-text{
+  color: gray;
+}
+/* end story section */
+
+/* start great peaple  */
+.great_figures {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 clamp(0rem, 3.5vw, 3.125rem) 50px clamp(0rem, 3.5vw, 3.125rem);
+  position: relative;
+}
+.great_figures::before{
+  content: "";
+  width: 100%;
+  height: clamp(15rem, 40vh, 27rem);
+  position: absolute;
+  background-image: url(../images/bg/55.png);
+  opacity: .6;
+  pointer-events: none;
+} 
+._more a{
+  color: #133d33;
+  font-size: large;
+}
+._more a i{
+  margin-left: 20px;
+}
+._more{
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid transparent;
+  background-color: #cfb071;
+  padding:  10px clamp(1.875rem, 3.5vw, 3.125rem);
+  border-radius: 15px;
+  transition: .3s;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+._more:hover{
+  border:  2px solid #133d33;
+  background-color: #F7F1E5;
+}
+
+.great_figures ._cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  padding: clamp(1.5rem, 3.5vw, 3.125rem);
+}
+.great_figures._cards::before{
+  content: "asaasaadadssa ";
+  width: 100%;
+  color: transparent;
+  position: absolute;
+  background-image: url(../images/bg/55-190-texture-background-islamic-stock-photos-pictures-royalty-free-images-istock.image.seamless-pattern-in-authentic-arabian-style.Woblo-removebg-preview.png);
+  height: 40vh;
+  opacity: .5;
+}
+.great_figures ._cards .card {
+  width: 18rem;      /* moved here from an inline style so it can respond to screen size */
+  max-width: 100%;
+  box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.482);
+  margin: 0 20px;
+  border: 2px solid #133d33;
+  transition: 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.great_figures ._cards h5{
+  margin: 10px 0;
+  color: #133d33;
+  font-weight: 700;
+}
+.great_figures .explore {
+  position: relative;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: #cfb071;
+  padding: 6px 14px;
+  border-radius: 25px;
+  margin: 5px 0;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.great_figures .card:hover .explore {
+  opacity: 1;
+  /* bottom: -15px; */
+}
+.great_figures ._cards .card:hover {
+  border: 2px solid #cfb071;
+  background-color: #f7f1e5;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.357);
+}
+.great_figures ._cards .card img {
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+.great_figures ._cards .card:hover img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.great_figures ._title {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+.great_figures ._title h1 {
+  color: #133d33;
+}
+.great_figures ._title span {
+  color: #cfb071;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* .great_figures .card{
+  width: 350px;
+} */
+
+/* end great peaple  */
+
+/* =====================================================
+   RESPONSIVE LAYER (home.css)
+   Most scaling is fluid (clamp / min / %), so only three breakpoints:
+     1024px  tablet landscape -> cards wrap into 2 columns, timeline wraps
+      768px  tablet portrait  -> stacked headings, shorter map
+      480px  phones           -> single-column buttons, compact controls
+   ===================================================== */
+
+/* Fluid typography for major headings (values unchanged: they already
+   stop growing at 1440, which is what keeps large monitors in proportion) */
+.hero-content h1 {
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+}
+.hero-content ._nxt {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+}
+.hero-content ._title {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  line-height: 1.5;
+}
+section._famusMosque ._title h1,
+.great_figures ._title h1 {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+.era_slider ._title h1,
+.era_slider ._map h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+}
+._stories ._container h1 {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+/* Keep hero text from touching the screen edges on narrow viewports */
+.hero-content p {
+  padding: 0 15px;
+}
+
+/* ---------- Islamic Egypt timeline ---------- */
+.timeline-section {
+  padding: clamp(3.75rem, 6vw, 5rem) 5%;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+.timeline-section h2 {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.375rem);
+  color: #CFB071;
+}
+.timeline {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+  max-width: 1500px;
+  margin: auto;
+}
+/* الخط */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #d8c9a5;
+}
+.timeline-item {
+  position: relative;
+  width: 18%;
+  min-width: 0;
+  z-index: 1;
+}
+/* السنة */
+.year {
+  display: block;
+  margin-bottom: 12px;
+  font-size: clamp(0.7rem, 1.6vw, 0.875rem);
+  font-weight: bold;
+  color: #CFB071;
+}
+/* الدائرة */
+.timeline-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee5cf;
+  border-radius: 50%;
+  color: #9b8150;
+  font-size: 18px;
+  border: 5px solid #f8f4e8;
+  box-shadow: 0 0 0 1px #d8c9a5;
+}
+.timeline-item h3 {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  margin-bottom: 8px;
+  color: #CFB071;
+}
+.timeline-item p {
+  font-size: 0.75rem;      /* was 0.65-0.7rem (10-11px): too small to read comfortably */
+  line-height: 1.6;
+  color: #CFB071;
+  margin: 0;
+}
+
+/* ---------- Tablets and below (<=1024px) ---------- */
+@media (max-width: 1024px) {
+  /* 4 cards in one row get too narrow here: wrap into rows of 2 (or 1 if space is tight) */
+  ._famusMosque ._cards,
+  .great_figures ._cards {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  ._famusMosque ._cards .card,
+  .great_figures ._cards .card {
+    flex: 1 1 max(14rem, 45%);
+    width: auto;
+    max-width: 20rem;
+    margin: 0;
+  }
+
+  /* the connecting line only makes sense while the timeline is a single row */
+  .timeline {
+    justify-content: center;
+    column-gap: 3%;
+  }
+  .timeline::before {
+    display: none;
+  }
+  .timeline-item {
+    width: 30%;
+  }
+}
+
+/* ---------- Tablet portrait and below (<=768px) ---------- */
+@media (max-width: 768px) {
+  section._famusMosque ._title,
+  .great_figures ._title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  section._famusMosque ._title span,
+  .great_figures ._title span {
+    align-self: flex-end;
+  }
+
+  ._btns a {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .era_slider ._map iframe {
+    width: 100%;
+    height: clamp(17.5rem, 60vw, 26rem);
+  }
+
+  .timeline-item {
+    width: 45%;
+  }
+}
+
+/* ---------- Phones (<=480px) ---------- */
+@media (max-width: 480px) {
+  ._btns {
+    flex-direction: column;
+  }
+  ._btns a {
+    width: min(100%, 18rem);
+    margin: 0.375rem 0;
+  }
+
+  ._more {
+    width: 100%;
+    max-width: 260px;
+  }
+}

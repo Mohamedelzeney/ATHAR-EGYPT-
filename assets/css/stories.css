@@ -1,0 +1,157 @@
+body {
+  background-image: url(../images/bg/story.jpg);
+  background-size: cover;
+  position: relative;
+}
+._overlay{
+  background-color: rgba(0, 0, 0, 0.126);
+}
+/* Banner size/position/image-fit rules are shared and live in main.css (._landbg). */
+._landbg {
+  background-size: cover;
+  margin-bottom: clamp(3.75rem, 7vw, 6.25rem);
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.648);
+}
+._landbg::after {
+  background-color: #153b30a1;
+}
+._landbg ._container ._title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  color: #f6ebd4;
+  padding-top: clamp(1.5rem, 3.5vw, 3.125rem);
+}
+/* end hero */
+
+/* stories */
+._stories {
+  margin-bottom: 50px;
+}
+._stories ._container {
+  display: grid;
+  /* two equal columns instead of content-sized "auto auto" (card widths no longer
+     depend on text length / image size, so they can't blow up on big monitors) */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  justify-items: stretch;
+}
+._stories ._story {
+  overflow: hidden;
+  background-color: aliceblue;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  min-height: 12rem;
+  background-color: rgba(0, 0, 0, 0.269);
+  border: 5px solid #153b30;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+._stories ._story ._img {
+  position: relative;      /* the photo fills this box and never dictates the card height */
+  min-height: 100%;
+}
+._stories ._story img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 5px 0 0;
+  object-fit: cover;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._stories ._story img:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+._stories ._story ._title * {
+  margin-bottom: 10px;
+}
+._stories ._story ._title i{
+ color: #153b30;
+}
+._stories ._story ._title {
+  padding: 15px;
+  color: #eee;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+._stories ._story ._title h5 {
+  color: #fff;
+}
+._stories ._story ._title a {
+  text-align: center;
+  width: fit-content;
+  margin-right: 10px;
+  padding: 5px 15px;
+  background-color: #153b30;
+  color: #f6ebd4;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._stories ._story ._title a:hover {
+  background-color: #f6ebd486;
+  border: 2px solid #153b30;
+  color: #153b30;
+}
+._stories ._story ._title a * {
+  padding: 0;
+  margin: 0;
+  color: #f6ebd4;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+._stories ._story ._title a:hover *{
+  color: #153b30;
+}
+
+/* =====================================================
+   RESPONSIVE LAYER (stories.css)
+   Breakpoints: 768px (one story per row), 480px (photo above text)
+   ===================================================== */
+@media (max-width: 768px) {
+  ._landbg ._container ._title {
+    padding-top: 0;
+  }
+  ._stories ._container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  ._stories ._story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  ._stories ._story ._img {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  ._stories ._story ._img img {
+    padding: 0 0 5px 0;
+  }
+}

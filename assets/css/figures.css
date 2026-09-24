@@ -1,0 +1,257 @@
+/* Banner size/position/image-fit rules are shared and live in main.css (._landbg). */
+._landbg {
+  background-size: cover;
+  margin-bottom: clamp(2.5rem, 4.2vw, 3.75rem);
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.648);
+}
+/* body { overflow: hidden } was removed: it created a second scroll container.
+   Horizontal overflow is now handled once, in main.css. */
+body {
+  background-color: #f7f1e5;
+}
+._landbg::after {
+  background-color: #153b30d4;
+}
+._landbg ._container ._title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  color: #f6ebd4;
+  padding-top: clamp(1.5rem, 3.5vw, 3.125rem);
+}
+/* end hero */
+._sec ._filter {
+  border: 2px solid #cfb071;
+  background-color: #f6ebd4;
+  padding: 20px;
+  margin: clamp(2rem, 3.5vw, 3.125rem) auto;
+  display: flex;
+  flex-wrap: wrap;          /* the 4 filter buttons wrap instead of overflowing on phones */
+  gap: 0.5rem 0;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  width: fit-content;
+  box-shadow: 5px 20px 15px rgba(128, 128, 128, 0.352);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+._sec ._filter button {
+  margin: 0 5px;
+  padding: 5px 15px;
+  color: white;
+  font-weight: bold;
+  background-color: #cfb071;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._sec ._filter button:hover {
+  border: 2px solid #cfb071;
+  background-color: rgba(0, 62, 0, 0.477);
+  color: #cfb071;
+}
+._sec ._cards_container {
+  display: grid;
+  /* 4 columns on desktop, 3 / 2 / 1 as the space shrinks: no media queries needed.
+     (the old rule was a fixed repeat(4, 1fr) plus an invalid "gap: px;") */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  margin: clamp(2rem, 3.5vw, 3.125rem) auto;
+}
+._sec ._cards_container .card {
+  margin: 10px;
+  padding: 20px;
+  background-color: #faf6ee;
+  border: 2px solid #cfb071;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._sec ._cards_container .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 5px 15px 15px rgba(128, 128, 128, 0.386);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+}
+._sec ._cards_container .card ._badges {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+}
+._sec ._cards_container .card ._badges ._category {
+  background-color: #133d33;
+  color: #caad6f;
+  padding: 2px 10px;
+  margin-right: 10px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+._sec ._cards_container .card ._badges ._date {
+  color: #caad6f;
+}
+._sec ._cards_container .card ._img {
+  border-top-left-radius: 50% 35%;
+  border-top-right-radius: 50% 35%;
+  overflow: hidden;
+  position: relative;
+  width: min(9.375rem, 60%);
+  margin: 10px auto;
+}
+._sec ._cards_container .card ._img img {
+  object-fit: cover;
+}
+._sec ._cards_container .card ._img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #cfb071;
+  border-top-left-radius: 50% 35%;
+  border-top-right-radius: 50% 35%;
+  pointer-events: none;
+}
+._sec ._cards_container .card ._text {
+  width: 100%;
+}
+._sec ._cards_container .card ._text .ar_name {
+  color: #caad6f;
+  font-family: "Cairo", sans-serif;
+}
+._sec ._cards_container .card ._text ._pra {
+  color: #818181;
+}
+._golden_line {
+  width: 0%;
+  margin: 10px 0;
+  border: 3px solid transparent;
+  border-radius: 25px;
+  transition: 0.4s ease;
+  -webkit-transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  -ms-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+._sec ._cards_container .card:hover ._golden_line {
+  width: 100%;
+  border: 3px solid #caad6f;
+}
+._read {
+  padding: 5px 10px;
+  color: #133d33;
+  border: 2px solid #133d33;
+  transition: 0.3s ease;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+._sec ._cards_container .card:hover ._read {
+  color: #caad6f;
+  background-color: #133d33;
+}
+._sec ._cards_container .card .audio-btn {
+  margin-left: 5px;
+  padding: 5px 6px;
+  border: 2px solid #133d33;
+  background-color: transparent;
+  transition: 0.3s;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._sec ._cards_container .card:hover .audio-btn {
+  color: #caad6f;
+  background-color: #133d33;
+}
+._sec ._cards_container .card ._btns ._watch {
+  color: #133d33;
+  padding: 5px 6px;
+  margin-left: 5px;
+  border: 2px solid #133d33;
+  transition: 0.3s;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+._sec ._cards_container .card:hover ._watch {
+  color: #caad6f;
+  background-color: #133d33;
+}
+
+/* =====================================================
+   RESPONSIVE LAYER (figures.css)
+   The card grid is fluid (auto-fill), so only small-screen touch-ups remain.
+   Breakpoint: 480px
+   ===================================================== */
+@media (max-width: 768px) {
+  ._landbg ._container ._title {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  ._sec ._filter {
+    padding: 12px;
+  }
+  ._sec ._filter button {
+    margin: 0 4px;
+    padding: 8px 14px;       /* larger touch target */
+  }
+  ._sec ._cards_container .card {
+    margin: 10px 0;
+  }
+}
