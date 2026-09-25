@@ -419,19 +419,37 @@ section._famusMosque ._title span {
 ._stories ._container .card:hover ._overlay{
   opacity: 1;
 }
-._stories ._container .card ._exp{
+._stories ._container .card ._exp {
   position: absolute;
-  color: white;
-  background-color: #0000007b;
   color: #cfb071;
+  background-color: #0000007b;
   padding: 6px 14px;
   border-radius: 25px;
   transition: 0.3s ease;
   opacity: 0;
   border: 2px solid #cfb07192;
 }
-._stories ._container .card:hover ._exp{
+
+/* Desktop */
+@media (min-width: 769px) {
+  ._stories ._container .card:hover ._exp {
+    opacity: 1;
+  }
+}
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  ._stories ._container .card ._exp {
+  position: relative;
+  color: #cfb071;
+  background-color: #0000007b;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: 0.3s ease;
   opacity: 1;
+  border: 2px solid #cfb07192;
+  margin-bottom: 5px;
+  }
 }
 ._stories ._container h1{
   text-align: center;
