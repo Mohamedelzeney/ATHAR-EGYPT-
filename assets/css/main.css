@@ -60,6 +60,11 @@ a{
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 15px  #11191778;
 }
+.name_logo{
+  color: #f1e3c7;
+  padding-left: 10px;
+  margin: 0;
+}
 header ._container{
   display: flex;
   flex-flow: nowrap row;
