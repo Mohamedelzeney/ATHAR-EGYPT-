@@ -1,10 +1,10 @@
 body {
-  background-image: url(../images/bg/story.jpg);
+  /* background-image: url(../images/bg/story.jpg); */
   background-size: cover;
   position: relative;
 }
 ._overlay{
-  background-color: rgba(0, 0, 0, 0.126);
+  /* background-color: rgba(0, 0, 0, 0.126); */
 }
 /* Banner size/position/image-fit rules are shared and live in main.css (._landbg). */
 ._landbg {
